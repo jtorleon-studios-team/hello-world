@@ -1,0 +1,16 @@
+name: Release
+
+on:
+  repository_dispatch:
+    types: [poc-attest]
+
+permissions:
+  contents: write
+  attestations: write
+  id-token: write
+
+jobs:
+  attest:
+    uses: jtorleon-studios-team/.github/.github/workflows/call.release.yml@main
+    with:
+      tag: ${{ github.event.client_payload.tag }}

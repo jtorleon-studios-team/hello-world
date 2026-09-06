@@ -1,0 +1,12 @@
+name: Auto Assign
+run-name: ${{ github.actor }} - Auto Assign
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened]
+
+jobs:
+  run:
+    uses: jtorleon-studios-team/.github/.github/workflows/call.auto-assign.yml@main
+    secrets: inherit
